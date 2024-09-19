@@ -1,17 +1,36 @@
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    mode: 'development',
     entry: './src/index.js',
-   devServer: {
-     static: './dist',
-   },
-    plugins: [
-           new HtmlWebpackPlugin({
-        title: 'Development',
-      }),
-    ],
+    mode: 'development',
     output: {
-      filename: 'main.js',
+        filename: 'main.js'
     },
-  };
+    devServer: {
+      static: './dist',
+      port: 3001,
+      hot: true,
+      // open: true,
+    },
+    devtool: 'inline-source-map',
+    stats: {
+      children: true
+    },
+    plugins: [
+      new MiniCssExtractPlugin()
+    ],
+    module: {
+        rules: [
+          { test: /\.css$/,
+            use: [
+              {
+                loader: MiniCssExtractPlugin.loader,
+                options: {
+                  esModule: true,
+                },
+              }, 
+              'css-loader'] }
+        ]
+    }
+}

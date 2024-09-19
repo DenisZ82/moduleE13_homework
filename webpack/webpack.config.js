@@ -4,7 +4,7 @@ const TerserWebpackPlugin = require('terser-webpack-plugin');
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 // const StylelintPlugin = require('stylelint-webpack-plugin');
-// const path = require('path');
+const path = require('path');
 
 module.exports = {
     entry: './src/index.js',
@@ -20,7 +20,7 @@ module.exports = {
     },
     devtool: 'inline-source-map',
     stats: {
-      children: false
+      children: true
     },
     plugins: [      
       new MiniCssExtractPlugin(),
@@ -38,7 +38,7 @@ module.exports = {
       // new StylelintPlugin(),
     ],
     optimization: {
-      minimize: true,
+      minimize: false,
       minimizer: [
         new TerserWebpackPlugin(), 
         new CssMinimizerWebpackPlugin(),

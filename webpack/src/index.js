@@ -1,3 +1,3 @@
-import './style.css';
+import "./style.css";
 
-document.write('Hello, world!!!');
+document.write("Hello, world!!!");

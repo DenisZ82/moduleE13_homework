@@ -1,26 +1,35 @@
+// import globals from "globals";
+// import pluginJs from "@eslint/js";
 import globals from "globals";
-import pluginJs from "@eslint/js";
+import js from "@eslint/js";
 
 export default {
   languageOptions: {
-    globals: {
-      browser: globals.browser,
-    },
+    globals: globals.browser, // прямой доступ к глобальным переменным
   },
-  plugins: {
-    recommended: pluginJs.configs.recommended,
-  },
+  extends: [js.configs.recommended],  // используйте extends для подключения рекомендованных конфигов
   rules: {
-    semi: "error"
+    // ваши правила
   },
 };
 
-// export default [
-//   {
-//     files: ["src/**/*.js"],
-//     ignores: ["**/*.config.js"],
-//     rules: {
-//       semi: "error"
-//     }
+// export default {
+//   languageOptions: {
+//     globals: {
+//       browser: globals.browser,  // Убедитесь, что это корректная ссылка
+//     },
+//   },
+//   plugins: {
+//     recommended: pluginJs.configs.recommended,  // Убедитесь в правильности этого пути
+//   },
+//   rules: {
+//     semi: "error"
+//   },
+// };
+
+// export default {
+//   rules: {
+//     "semi": ["error", "always"],
+//     "quotes": ["error", "double"]
 //   }
-// ];
+// };
