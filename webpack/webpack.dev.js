@@ -15,7 +15,7 @@ module.exports = {
     },
     devtool: 'inline-source-map',
     stats: {
-      children: true
+      children: false
     },
     plugins: [
       new MiniCssExtractPlugin()

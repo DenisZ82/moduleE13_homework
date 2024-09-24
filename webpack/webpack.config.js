@@ -30,11 +30,7 @@ module.exports = {
         title: 'Development'}),
       new TerserWebpackPlugin(),
       new CssMinimizerWebpackPlugin(),
-      new ESLintPlugin({
-        overrideConfigFile: path.resolve(__dirname, 'eslint.config.mjs'),
-        context: path.resolve(__dirname, 'src'),
-        extensions: ['js', 'mjs'],
-      }),
+      new ESLintPlugin(),
       // new StylelintPlugin(),
     ],
     optimization: {

@@ -1,19 +1,20 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: './src/index.js',
-    mode: 'development',
+    mode: 'production',
     output: {
         filename: 'main.js'
     },
     devServer: {
       static: './dist',
       port: 3001,
+      hot: false,
     },
     devtool: 'inline-source-map',
     stats: {
-      children: false
+      children: true
     },
     plugins: [
       new MiniCssExtractPlugin()
