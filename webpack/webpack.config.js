@@ -3,8 +3,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
-// const StylelintPlugin = require('stylelint-webpack-plugin');
-const path = require('path');
 
 module.exports = {
     entry: './src/index.js',
@@ -31,7 +29,6 @@ module.exports = {
       new TerserWebpackPlugin(),
       new CssMinimizerWebpackPlugin(),
       new ESLintPlugin(),
-      // new StylelintPlugin(),
     ],
     optimization: {
       minimize: false,
@@ -55,11 +52,6 @@ module.exports = {
             test: /\.pug$/,
             use: 'pug-loader',
           },
-          // {
-          //   test: /\.tsx?$/,
-          //   use: 'ts-loader',
-          //   // exclude: /node_modules/,
-          // },
         ]
     }
 };
